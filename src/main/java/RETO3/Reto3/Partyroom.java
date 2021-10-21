@@ -68,7 +68,7 @@ public class Partyroom {
      * Atributo que representa los mensajes dejados por los usuarios al salon de fiestas.
      */
    @OneToMany(mappedBy="partyroom")
-   @JsonIgnoreProperties("partyroom")
+   @JsonIgnoreProperties({"partyroom","client"})
    private List<Message> messages;
    
    /**
