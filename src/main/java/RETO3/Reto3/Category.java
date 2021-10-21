@@ -24,7 +24,7 @@ public class Category implements Serializable{
    
    private String description; 
    
-   @OneToMany
+   @OneToMany(mappedBy="category")
    @JsonIgnoreProperties("category")
    private List<Partyroom> partyrooms;
 

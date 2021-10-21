@@ -33,11 +33,11 @@ public class Client{
     
     private Integer age;
     
-   @OneToMany
+   @OneToMany(mappedBy="client")
    @JsonIgnoreProperties("client")
    private List<Message> messages;
    
-   @OneToMany
+   @OneToMany(mappedBy="client")
    @JsonIgnoreProperties("client")
    private List<Reservation> reservations;
 

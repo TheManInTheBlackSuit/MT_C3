@@ -67,14 +67,14 @@ public class Partyroom {
     /**
      * Atributo que representa los mensajes dejados por los usuarios al salon de fiestas.
      */
-   @OneToMany
+   @OneToMany(mappedBy="partyroom")
    @JsonIgnoreProperties("partyroom")
    private List<Message> messages;
    
    /**
     * Atributo que representa las reservaciones hechas por los clientes para el salon de fiestas.
     */
-   @OneToMany
+   @OneToMany(mappedBy="partyroom")
    @JsonIgnoreProperties("partyroom")
    private List<Reservation> reservations;
 
