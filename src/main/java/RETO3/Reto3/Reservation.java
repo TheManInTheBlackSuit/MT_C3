@@ -38,12 +38,12 @@ public class Reservation {
     
     @ManyToOne
     @JoinColumn(name="partyroom_id")
-    @JsonIgnoreProperties({"messages","reservations"})
+    @JsonIgnoreProperties("reservations")
     private Partyroom partyroom;
     
     @ManyToOne
     @JoinColumn(name="client_id")
-    @JsonIgnoreProperties("reservations")
+    @JsonIgnoreProperties({"messages","reservations"})
     private Client client;
     
     private Integer score;
