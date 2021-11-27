@@ -29,4 +29,12 @@ public class RepositorioPartyroom {
     public Partyroom guardar(Partyroom obj){
         return crud.save(obj);
     }
+    
+     public Partyroom actualizar(Partyroom obj){
+        return crud.save(obj);
+    }
+    
+    public void borrar(Integer id){
+        crud.deleteById(id);
+    }
 }

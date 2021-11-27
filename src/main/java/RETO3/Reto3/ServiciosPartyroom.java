@@ -46,5 +46,29 @@ public class ServiciosPartyroom {
     }
     
     
+     public void borrar(Integer id){
+        metodosCRUD.borrar(id);
+    }
+     
+    
+     public Partyroom actualizar(Partyroom obj){
+          if(obj.getId()==null){
+            return obj;
+        }
+        else{
+            Optional<Partyroom> resp=metodosCRUD.getPartyroom(obj.getId());
+            if(!resp.isEmpty()){
+                Partyroom nuevo=resp.get();
+                nuevo.setCapacity(obj.getCapacity());
+                nuevo.setDescription(obj.getDescription());
+                nuevo.setName(obj.getName());
+                nuevo.setOwner(obj.getOwner());
+                return metodosCRUD.actualizar(nuevo);
+            }
+            else{
+                return obj;
+            }
+        }
+    }
     
 }

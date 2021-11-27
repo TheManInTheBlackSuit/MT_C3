@@ -41,4 +41,26 @@ public class ServiciosClient {
         }
     }
     
+    public void borrar(Integer id){
+        metodosCRUD.borrar(id);
+    }
+    
+    public Client actualizar(Client obj){
+          if(obj.getIdClient()==null){
+            return obj;
+        }
+        else{
+            Optional<Client> resp=metodosCRUD.getClient(obj.getIdClient());
+            if(!resp.isEmpty()){
+                Client nuevo=resp.get();
+                nuevo.setAge(obj.getAge());
+                nuevo.setName(obj.getName());
+                nuevo.setPassword(obj.getPassword());
+                return metodosCRUD.actualizar(nuevo);
+            }
+            else{
+                return obj;
+            }
+        }
+    }
 }

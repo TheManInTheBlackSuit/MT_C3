@@ -30,4 +30,11 @@ public class RepositorioCategory {
         return crud.save(obj);
     }
     
+    public Category actualizar(Category obj){
+        return crud.save(obj);
+    }
+    
+    public void borrar(Integer id){
+        crud.deleteById(id);
+    }
 }

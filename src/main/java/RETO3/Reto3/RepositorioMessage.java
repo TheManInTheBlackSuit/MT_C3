@@ -29,5 +29,11 @@ public class RepositorioMessage {
     public Message guardar(Message obj){
         return crud.save(obj);
     }
+    public Message actualizar(Message obj){
+        return crud.save(obj);
+    }
     
+    public void borrar(Integer id){
+        crud.deleteById(id);
+    }
 }

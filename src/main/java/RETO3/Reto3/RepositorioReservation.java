@@ -29,4 +29,12 @@ public class RepositorioReservation {
     public Reservation guardar(Reservation obj){
         return crud.save(obj);
     }
+    
+    public void borrar(Integer id){
+        crud.deleteById(id);
+    }
+    
+    public Reservation actualizar(Reservation obj){
+       return crud.save(obj);
+    }
 }

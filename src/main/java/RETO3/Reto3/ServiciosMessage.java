@@ -41,4 +41,24 @@ public class ServiciosMessage {
         }
     }
     
+    public void borrar(Integer id){
+        metodosCRUD.borrar(id);
+    }
+    
+    public Message actualizar(Message obj){
+          if(obj.getIdMessage()==null){
+            return obj;
+        }
+        else{
+            Optional<Message> resp=metodosCRUD.getMessage(obj.getIdMessage());
+            if(!resp.isEmpty()){
+                Message nuevo=resp.get();
+                nuevo.setMessageText(obj.getMessageText());
+                return metodosCRUD.actualizar(nuevo);
+            }
+            else{
+                return obj;
+            }
+        }
+    }
 }

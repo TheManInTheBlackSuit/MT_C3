@@ -29,5 +29,12 @@ public class RepositorioClient {
     public Client guardar(Client obj){
         return crud.save(obj);
     }
+    public Client actualizar(Client obj){
+        return crud.save(obj);
+    }
+    
+    public void borrar(Integer id){
+        crud.deleteById(id);
+    }
     
 }

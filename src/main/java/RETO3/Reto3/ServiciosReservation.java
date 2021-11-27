@@ -41,4 +41,26 @@ public class ServiciosReservation {
         }
     }
     
+    public void borrar(Integer id){
+        metodosCRUD.borrar(id);
+    }
+    
+     public Reservation actualizar(Reservation obj){
+          if(obj.getIdReservation()==null){
+            return obj;
+        }
+        else{
+            Optional<Reservation> resp=metodosCRUD.getReservation(obj.getIdReservation());
+            if(!resp.isEmpty()){
+                Reservation nuevo=resp.get();
+                nuevo.setStartDate(obj.getStartDate());
+                nuevo.setDevolutionDate(obj.getDevolutionDate());
+                nuevo.setStatus(obj.getStatus());
+                return metodosCRUD.actualizar(nuevo);
+            }
+            else{
+                return obj;
+            }
+        }
+    }
 }

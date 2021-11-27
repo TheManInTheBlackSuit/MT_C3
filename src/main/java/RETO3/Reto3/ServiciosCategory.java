@@ -42,4 +42,28 @@ public class ServiciosCategory{
         }
     }
     
+    public void borrar(Integer id){
+        metodosCRUD.borrar(id);
+    }
+    
+    public Category actualizar(Category obj){
+          if(obj.getId()==null){
+            return obj;
+        }
+        else{
+            Optional<Category> resp=metodosCRUD.getCategory(obj.getId());
+            if(!resp.isEmpty()){
+                Category nuevo=resp.get();
+                nuevo.setName(obj.getName());
+                nuevo.setDescription(obj.getDescription());
+                return metodosCRUD.actualizar(nuevo);
+            }
+            else{
+                return obj;
+            }
+        }
+    }
+    
+    
+    
 }
