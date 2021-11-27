@@ -54,6 +54,7 @@ public class MessageWeb{
     }
     
     @DeleteMapping("/{id}")
+    @ResponseStatus(HttpStatus.NO_CONTENT)
     public void borrar(@PathVariable("id")int id){
         servicios.borrar(id);
     }
