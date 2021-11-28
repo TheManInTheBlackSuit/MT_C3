@@ -138,7 +138,7 @@ public class ServiciosReservation {
        List<Reservation> reservas= metodosCRUD.darPorEstado("completed");
        reservas.addAll(metodosCRUD.darPorEstado("cancelled"));
        reservas.addAll(metodosCRUD.darPorEstado("created"));
-       Map<Client,Integer> contadores=new HashMap();
+       Map<Client,Integer> contadores=new LinkedHashMap();
        for(Reservation r:reservas){
            Client actual=r.getClient();
            if(contadores.get(actual)==null){
