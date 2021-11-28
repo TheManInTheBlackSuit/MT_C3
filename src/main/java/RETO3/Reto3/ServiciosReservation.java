@@ -109,7 +109,7 @@ public class ServiciosReservation {
        return metodosCRUD.darReporte(first, last);
        }
        catch(Exception excepcion){
-           
+           excepcion.printStackTrace();
        }
        return null;
     }
@@ -120,7 +120,7 @@ public class ServiciosReservation {
      * @return Mapa con la cantidad de reservas completadas y reservas canceladas.
      */
     public Map<String,Integer> darCompletadosVsCancelados(){
-        Map<String,Integer> respuesta=new HashMap<>();
+        Map<String,Integer> respuesta=new LinkedHashMap<>();
         int completados=metodosCRUD.darPorEstado("completed").size();
         int cancelados=metodosCRUD.darPorEstado("cancelled").size();
         respuesta.put("completed",completados);
