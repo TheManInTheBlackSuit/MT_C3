@@ -5,6 +5,7 @@
 package RETO3.Reto3;
 
 import java.util.List;
+import java.util.Map;
 import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -44,7 +45,9 @@ public class ReservationWeb{
     @PostMapping("/save")
     @ResponseStatus(HttpStatus.CREATED)
     public Reservation guardar(@RequestBody Reservation obj){
-        obj.setStatus("Programado");
+        if(obj.getStatus()==null){
+            obj.setStatus("Programado");
+        }
         return servicios.guardar(obj);
     }
     
@@ -58,5 +61,20 @@ public class ReservationWeb{
     @ResponseStatus(HttpStatus.NO_CONTENT)
     public void borrar(@PathVariable("id")int id){
         servicios.borrar(id);
+    }
+    
+    @GetMapping("/report-dates/{inicio}/{terminacion}")
+    public List<Reservation> darReporte(@PathVariable String inicio, @PathVariable String terminacion){
+        return servicios.darReporte(inicio, terminacion);
+    }
+    
+    @GetMapping("/report-status")
+    public Map<String,Integer> darCompletadosVsCancelados(){
+        return servicios.darCompletadosVsCancelados();
+    }
+    
+    @GetMapping("/report-clients")
+    public List<Object> darReporteTopClientes(){
+        return servicios.darTopClientes();
     }
 }

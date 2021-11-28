@@ -8,6 +8,7 @@ import java.util.List;
 import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
+import java.util.*;
 
 /**
  *
@@ -37,4 +38,14 @@ public class RepositorioReservation {
     public Reservation actualizar(Reservation obj){
        return crud.save(obj);
     }
+    
+    public List<Reservation> darReporte(Date first, Date last){
+        return crud.findByStartDateBetween(first, last);
+    }
+    
+    public List<Reservation> darPorEstado(String status){
+        return crud.findByStatus(status);
+    }
+    
+    
 }

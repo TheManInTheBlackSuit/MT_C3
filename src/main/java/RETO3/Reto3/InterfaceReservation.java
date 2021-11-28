@@ -5,11 +5,17 @@
 package RETO3.Reto3;
 
 import org.springframework.data.repository.CrudRepository;
+import java.util.*;
 
 /**
  *
  * @author Sebastian
  */
 public interface InterfaceReservation extends CrudRepository<Reservation,Integer> {
+    
+    public List<Reservation> findByStartDateBetween(Date first,Date last);
+    
+    public List<Reservation> findByStatus(String status);
+    
     
 }
