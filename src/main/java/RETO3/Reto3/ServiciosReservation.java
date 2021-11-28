@@ -150,7 +150,7 @@ public class ServiciosReservation {
        }
        
        Set<Client> llaves=contadores.keySet();
-       Map<Client,Integer> contadorOrdenado=new HashMap();
+       Map<Client,Integer> contadorOrdenado=new LinkedHashMap();
        Client mayor=null;
        int numMayor=0;
        while(contadores.size()>0){
@@ -166,7 +166,7 @@ public class ServiciosReservation {
        }
        List<Object> respuesta=new ArrayList();
        for(Client cliente:contadorOrdenado.keySet()){
-           Map<String,Object> mapResp=new HashMap();
+           Map<String,Object> mapResp=new LinkedHashMap();
            mapResp.put("total", contadorOrdenado.get(cliente));
            mapResp.put("client",cliente);
            respuesta.add(mapResp);
