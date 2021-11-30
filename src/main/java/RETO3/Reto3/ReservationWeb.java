@@ -46,7 +46,7 @@ public class ReservationWeb{
     @ResponseStatus(HttpStatus.CREATED)
     public Reservation guardar(@RequestBody Reservation obj){
         if(obj.getStatus()==null){
-            obj.setStatus("Programado");
+            obj.setStatus("created");
         }
         return servicios.guardar(obj);
     }
